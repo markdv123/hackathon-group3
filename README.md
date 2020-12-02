@@ -11,8 +11,6 @@ Your task is to build a Netflix clone, we'll call it netflux... The core feature
 
 A react app and `app.js` has been provided for you, for both the front end and back end. You'll need to install your own depedencies for the backend.
 
-Heres an example erd:
-
 ## Front End
 
 The front end must have a minimum of 5 pages:
