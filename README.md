@@ -2,14 +2,14 @@
 
 ## What We're Building
 
-Your task is to build a Netflix clone, we'll call it netflux... The core features should be:
+Your task is to build a Netflix clone, we'll call it Netflux... The core features should be:
 
 - Creating A User
 - A user has sole ownership of an account
 - An account has many profiles
 - You should be able to create many profiles for each account
 
-A react app and `app.js` has been provided for you, for both the front end and back end. You'll need to install your own depedencies for the backend.
+A React app and `app.js` has been provided for you, for both the front end and back end. You'll need to install your own depedencies for the back end.
 
 ## Front End
 
@@ -21,7 +21,7 @@ The front end must have a minimum of 5 pages:
 - View Profiles
 - Create Profile
 
-## Backend
+## Back End
 
 You don't have to implement a fully featured auth system. Fake auth is acceptable for MVP.
 
