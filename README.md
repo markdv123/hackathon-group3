@@ -48,7 +48,7 @@ Here is a list of post mvp features that you can implement
 
 ## ERD
 
-Here's an axample erd:
+Here's an example erd:
 
 ![erd](images/erd.png)
 
