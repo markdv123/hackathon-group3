@@ -33,7 +33,7 @@ function Home(props) {
                     <a className="waves-effect waves-light btn-large" href="/createprofile"><i className="material-icons left">person_add</i>Add Profile</a>
                 </div>
             ) : (
-                <div>
+                <div className="info center">
                     <h2>Welcome to Netflux</h2>
                     <p>The world's most popular streaming service for everyone's favorite movies and TV shows. Click Cet Started to register a new account.</p>
                     <Link className="waves-effect waves-light btn-large" to="/register"><i className="material-icons left">person_add</i>Get Started</Link>

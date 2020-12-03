@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom'
 import TextInput from '../components/TextInput'
 import { __RegisterUser } from '../services/UserServices'
 import Nav from '../components/Nav'
@@ -69,14 +70,14 @@ function SignUp(props) {
               value={accountTier}
               onChange={handleTier}>
               <option value="" disabled selected>Choose your option</option>
-              <option value="1">Platinum</option>
-              <option value="2">Gold</option>
-              <option value="3">Bronze</option>
+              <option value="Platinum">Platinum</option>
+              <option value="Gold">Gold</option>
+              <option value="Bronze">Bronze</option>
             </select>
           </div>
-          <button className="btn waves-effect waves-light red" type="submit" name="action">Sign Up
-              <i className="material-icons right">directions_car</i>
-          </button>
+          <Link to="/" className="btn waves-effect waves-light" type="submit" name="action">Sign Up
+              <i className="material-icons left">person_add</i>
+          </Link>
         </form>
       </div>
     </div>
