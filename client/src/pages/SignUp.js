@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
+import {Link, withRouter} from 'react-router-dom'
 import TextInput from '../components/TextInput'
 import { __RegisterUser } from '../services/UserServices'
 import Nav from '../components/Nav'
@@ -10,6 +10,9 @@ function SignUp(props) {
   const [password, updatePassword] = useState('')
   const [accountTier, updateTier] = useState('')
 
+  useEffect(()=> {
+    console.log(props)
+  }, [])
   const handleName = ({ target }) => {
     updateName(target.value)
   }
@@ -29,7 +32,8 @@ function SignUp(props) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await __RegisterUser(name, email, password, accountTier)
+      const register = await __RegisterUser(name, email, password, accountTier)
+      console.log(register)
       props.history.push('/')
     } catch (error) {
       console.log(error)
@@ -75,9 +79,9 @@ function SignUp(props) {
               <option value="Bronze">Bronze</option>
             </select>
           </div>
-          <Link to="/" className="btn waves-effect waves-light" type="submit" name="action">Sign Up
+          <button onClick={handleSubmit} className="btn waves-effect waves-light" name="action">Sign Up
               <i className="material-icons left">person_add</i>
-          </Link>
+          </button>
         </form>
       </div>
     </div>
@@ -85,4 +89,4 @@ function SignUp(props) {
 
 }
 
-export default SignUp
+export default withRouter(SignUp)
