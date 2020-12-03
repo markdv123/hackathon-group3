@@ -2,7 +2,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-export default ({authenticated, current}) => {
+export default ({authenticated, currentUser}) => {
     return authenticated && currentUser ? (
         <nav>
             <div className="nav-wrapper">
