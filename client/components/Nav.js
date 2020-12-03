@@ -1,1 +1,0 @@
-//nav bar will have Netflux title, signout button, change profile
