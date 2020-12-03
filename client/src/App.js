@@ -8,23 +8,23 @@ import SignIn from './pages/SignIn'
 import CreateProfile from './pages/CreateProfile'
 import ViewProfile from './pages/ViewProfile'
 
-function App() {
+function App(props) {
   const [pageLoading, updatePageLoading] = useState(true)
   const [authenticated, updateAuthenticated] = useState(false)
   const [currentUser, updateUser] = useState(null)
 
   useEffect(()=> {
     updatePageLoading(false)
-    verifyAuthenticated()
+    verifyTokenValid()
   }, [])
 
-  toggleAuthenticated = (value, user) => {
+  const toggleAuthenticated = (value, user) => {
     updateAuthenticated(value)
     updateUser(user)
     props.history.push('/')
   }
 
-  verifyTokenValid = async () => {
+  const verifyTokenValid = async () => {
     //idk what to do here just yet
     return
   }
@@ -55,6 +55,7 @@ function App() {
             path="/login"
             component={()=> (
               <SignIn 
+                toggleAuthenticated={toggleAuthenticated}
                 currentUser={currentUser}
                 authenticated={authenticated}/>
             )}
