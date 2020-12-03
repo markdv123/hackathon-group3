@@ -24,9 +24,17 @@ const GetProfileById = async ( req, resp )=> {
    }
 }
 
+// { accountId, name, avatar, child }
 const CreateProfile = async ( req, resp) => {
    try { 
-
+      const accountId = parseInt ( req.params.account_id )
+      const profile = await Profile.create( {
+         account_id: accountId,
+         name: req.body.name,
+         avatar: req.body.avatar,
+         child: req.body.child
+      })
+      resp.send (profile)
    }
    catch (err ) {
       throw err
