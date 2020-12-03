@@ -9,24 +9,50 @@ const {
    generatePassword
  } = require('../middleware/passwordHandler')
 
- // body is { email: <email>, password: <password> }
-
-const Login = async (req, resp) => {
+ // req.body is { email: <email>, password: <password> }
+const Login = async (req, resp, next) => {
    try {
       const email = req.body.email
       const password = req.body.password
-      const user = await User.findOne( { where: { email: email } } )
-      if ( user && (await checkPassword( password, user.password) ) ) 
-        resp.send ( user )
-      else
-         resp.status(401).send({ msg: 'Unauthorized' })
+      const user = await User.findOne( { where: { email: email }, include: {
+         model: Account,
+         as: 'account'
+      }} )
+      if ( user && (await checkPassword( password, user.password) ) ) {
+         const payload = {
+            name: user.name,
+            id: user.id,
+            accountID: user.account.id
+          }
+          resp.locals.payload = payload
+          return next()
+      }
+      return resp.status(401).send({ msg: 'Unauthorized' })
     } catch (err) {
       throw err
     }
 }
 
+// body { name: , email: , password:, tier: }
+const CreateUser = async (req, resp, next) => {
+   try {
+      const password_digest = await generatePassword (req.body.password)
+      const userBody = { name: req.body.name, email: req.body.email, password: password_digest }
+      const user = await User.create( userBody )
+      // create the account record as well.
+      const account = await Account.create( { user_id: user.id, tier: req.body.tier } )
+      const payload = {
+         id: user.id,
+         accountId: account.id
+       }
+       resp.locals.payload = payload
 
-
+      return next()
+   }
+   catch (err) {
+      throw err
+   }
+}
 
 
 const GetUser = async ( req, resp ) => {
@@ -47,5 +73,7 @@ const GetUser = async ( req, resp ) => {
 
 
 module.exports = {
-   GetUser
+   Login,
+   GetUser,
+   CreateUser
 }

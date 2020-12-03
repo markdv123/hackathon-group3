@@ -12,6 +12,20 @@ const GetProfilesbyAccount = async ( req, resp ) => {
    }
 }
 
+const GetProfileById = async ( req, resp )=> {
+   try {
+      const profileId = parseInt(req.params.profile_id)
+      const profile = await Profile.findByPk( profileId )
+      resp.send(profile)
+   }
+   catch (err) {
+      console.log ( "Error in GetProfileById", err)
+      throw err
+   }
+}
+
+
 module.exports = {
-   GetProfilesbyAccount
+   GetProfilesbyAccount,
+   GetProfileById
 }
