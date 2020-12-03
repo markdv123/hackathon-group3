@@ -18,7 +18,13 @@ function App() {
     verifyAuthenticated()
   }, [])
 
-  verifyAuthenticated = async () => {
+  toggleAuthenticated = (value, user) => {
+    updateAuthenticated(value)
+    updateUser(user)
+    props.history.push('/')
+  }
+
+  verifyTokenValid = async () => {
     //idk what to do here just yet
     return
   }
