@@ -1,23 +1,20 @@
 {
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
+   "development": {
+      "database": "netflux_dev",
+      "host": "127.0.0.1",
+      "dialect": "postgres",
+      "define": {
+        "underscored": true
+      }
+    },
+    "test": {
+      "database": "netflux_test",
+      "host": "127.0.0.1",
+      "dialect": "postgres"
+    },
+    "production": {
+      "database": "netflux_prod",
+      "host": "127.0.0.1",
+      "dialect": "postgres"
+    }
 }
