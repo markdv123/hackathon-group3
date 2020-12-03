@@ -4,3 +4,6 @@ package-lock.json
 
 controllers/ControllerTemplate.js
 routes/RouteTemplate.js
+
+
+models/modelCreate.txt
