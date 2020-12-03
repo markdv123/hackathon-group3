@@ -70,7 +70,7 @@ function App() {
           />
           <ProtectedRoute
             authenticated={authenticated}
-            path="/profile"
+            path="/profile/:profile_id"
             component={()=> (
               <ViewProfile 
                 currentUser={currentUser}
@@ -83,4 +83,4 @@ function App() {
   )
 }
 
-export default App
+export default withRouter(App)
