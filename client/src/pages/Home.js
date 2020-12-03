@@ -12,7 +12,9 @@ function Home(props) {
     }
 
     useEffect(()=> {
-        getProfiles()
+        if(props.currentUser){
+            getProfiles()
+        }
     }, [])
 
     return (
@@ -28,14 +30,14 @@ function Home(props) {
                             </div>
                         )
                     })}
-                    <a class="waves-effect waves-light btn-large" href="/createprofile"><i class="material-icons left">person_add</i>Add Profile</a>
+                    <a className="waves-effect waves-light btn-large" href="/createprofile"><i class="material-icons left">person_add</i>Add Profile</a>
                 </div>
             ) : (
                 <div>
                     <h2>Welcome to Netflux</h2>
                     <p>The world's most popular streaming service for everyone's favorite movies and TV shows. Click Cet Started to register a new account.</p>
-                    <a class="waves-effect waves-light btn-large"><i class="material-icons left">person_add</i>Get Started</a>
-                    <a class="waves-effect waves-light btn-large"><i class="material-icons left">person</i>Sign In</a>
+                    <Link className="waves-effect waves-light btn-large"><i className="material-icons left">person_add</i>Get Started</Link>
+                    <Link className="waves-effect waves-light btn-large"><i className="material-icons left">person</i>Sign In</Link>
                 </div>
             )}
         </div>
