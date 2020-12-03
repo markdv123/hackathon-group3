@@ -1,31 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import TextInput from '../components/TextInput'
 import { __RegisterUser } from '../services/UserServices'
 import Nav from '../components/Nav'
 
-function SignUp() {
+function SignUp(props) {
   const [name, updateName] = useState('')
   const [email, updateEmail] = useState('')
   const [password, updatePassword] = useState('')
   const [accountTier, updateTier] = useState('')
 
-  handleName = ({ target }) => {
+  const handleName = ({ target }) => {
     updateName(target.value)
   }
 
-  handleEmail = ({ target }) => {
+  const handleEmail = ({ target }) => {
     updateEmail(target.value)
   }
 
-  handlePassword = ({ target }) => {
+  const handlePassword = ({ target }) => {
     updatePassword(target.value)
   }
 
-  handleTier = ({ target }) => {
+  const handleTier = ({ target }) => {
     updateTier(target.value)
   }
 
-  handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       await __RegisterUser(name, email, password, accountTier)

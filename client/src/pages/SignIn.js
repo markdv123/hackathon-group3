@@ -1,27 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
 import TextInput from '../components/TextInput'
 import { __LoginUser } from '../services/UserServices'
+import Nav from '../components/Nav'
 
-function SignIn() {
+function SignIn(props) {
   const [email, updateEmail] = useState('')
   const [password, updatePassword] = useState('')
   const [formError, updateErr] = useState(false)
 
-  handleEmail = ({ target }) => {
+  const handleEmail = ({ target }) => {
     updateEmail(target.value)
     updateErr(false)
   }
 
-  handlePassword = ({ target }) => {
+  const handlePassword = ({ target }) => {
     updatePassword(target.value)
     updateErr(false)
   }
 
-  handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const loginData = await __LoginUser(email, password)
-      toggleAuthenticated(true, loginData.user)
+      props.toggleAuthenticated(true, loginData.user)
     } catch (error) {
       this.setState({ formError: true })
     }

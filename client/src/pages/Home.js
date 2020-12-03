@@ -1,15 +1,19 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {withRouter, Link} from 'react-router-dom'
 import Nav from '../components/Nav'
-import {__GetProfiles} from '../services/ProfileServices'
+import { __GetProfiles } from '../services/ProfileServices'
 
-function Home() {
+function Home(props) {
     const [profiles, updateProfiles] = useState([])
 
-    getProfiles = async () => {
+    const getProfiles = async () => {
         const profiles = await __GetProfiles(props.currentUser.account_id)
         updateProfiles(profiles)
     }
+
+    useEffect(()=> {
+        getProfiles()
+    }, [])
 
     return (
         <div>
