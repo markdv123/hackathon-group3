@@ -1,12 +1,17 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import {__GetProfileById} from '../services/ProfileServices'
 
-function ViewProfile() {
+function ViewProfile(props) {
     const [profile, setProfile] = useState({})
     
-    getProfile = async () => {
-        const profile = await __GetProfileById(params.profile_id)
+    const getProfile = async () => {
+        const profile = await __GetProfileById(props.match.params.profile_id)
         setProfile(profile)
     }
+
+    useEffect(()=> {
+        getProfile()
+    }, [])
 
     return (
     <div>
