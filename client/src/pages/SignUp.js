@@ -64,7 +64,7 @@ function SignUp(props) {
           />
           <div>
             <label>Select Account Tier</label>
-            <select class="browser-default"
+            <select className="browser-default"
               name='accountTier'
               value={accountTier}
               onChange={handleTier}>
