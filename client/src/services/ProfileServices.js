@@ -21,7 +21,7 @@ export const __GetProfileById = async ( profileId ) => {
 
 export const __CreateProfile = async ( accountId, name, avatar, child ) => {
    try {
-      const res = await ApiClient.post('/profiles/create', { accountId, name, avatar, child })
+      const res = await ApiClient.post(`/profiles/create/${accountId}`, { name, avatar, child })
       return res.data
    }
    catch (err) {
