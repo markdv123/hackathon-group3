@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {__GetProfileById} from '../services/ProfileServices'
+import Nav from '../components/Nav'
 
 function ViewProfile(props) {
     const [profile, setProfile] = useState({})
@@ -15,6 +16,7 @@ function ViewProfile(props) {
 
     return (
     <div>
+        <Nav />
         <img src={profile.avatar}/>
         <h1 >Welcome! {profile.name} This Is Your Profile</h1>
     </div>

@@ -30,7 +30,7 @@ function SignIn(props) {
   return (
     <div>
       <Nav />
-      <div className="signin flex-col">
+      <div className="signin flex-col center">
         <form className="flex-col" onSubmit={handleSubmit}>
           <TextInput
             placeholder="Your Email"
