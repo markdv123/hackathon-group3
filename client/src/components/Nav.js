@@ -15,7 +15,7 @@ export default ({authenticated, currentUser}) => {
         </nav>
     ) : (
         <nav>
-            <div className="nav-wrapper">
+            <div className="nav-wrapper red">
             <Link to="/" className="brand-logo"><i className="material-icons" style={{"marginLeft": "10px"}}>live_tv</i>Netflux</Link>
             <ul className="right hide-on-med-and-down">
                 <li><Link to="/register">SignUp</Link></li>
