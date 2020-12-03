@@ -24,6 +24,7 @@ function Home() {
                             </div>
                         )
                     })}
+                    <a class="waves-effect waves-light btn-large" href="/createprofile"><i class="material-icons left">person_add</i>Add Profile</a>
                 </div>
             ) : (
                 <div>
