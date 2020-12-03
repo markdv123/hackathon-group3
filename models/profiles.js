@@ -34,5 +34,5 @@ module.exports = (sequelize, DataTypes) => {
          tableName: 'profiles'
       }
    )
-   return profiles
+   return Profile
 }
