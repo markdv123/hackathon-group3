@@ -45,8 +45,9 @@ function App(props) {
           />
           <Route
             path="/register"
-            component={()=> (
+            component={(props)=> (
               <SignUp 
+                {...props}
                 currentUser={currentUser}
                 authenticated={authenticated}/>
             )}

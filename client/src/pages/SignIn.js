@@ -22,6 +22,7 @@ function SignIn(props) {
     e.preventDefault()
     try {
       const loginData = await __LoginUser(email, password)
+      console.log(loginData)
       props.toggleAuthenticated(true, loginData.user)
     } catch (error) {
       updateErr(true)
@@ -46,7 +47,7 @@ function SignIn(props) {
             value={password}
             onChange={handlePassword}
           />
-          <button className="btn waves-effect waves-light" type="submit" name="action">Sign In
+          <button onClick={handleSubmit} className="btn waves-effect waves-light" name="action">Sign In
                 <i className="material-icons left">person</i>
           </button>
           {formError ? <p>Error While Logging In</p> : <p></p>}
