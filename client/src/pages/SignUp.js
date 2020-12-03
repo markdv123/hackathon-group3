@@ -38,7 +38,7 @@ function SignUp(props) {
   return (
     <div>
       <Nav />
-      <div className="signup flex-col">
+      <div className="signup flex-col center">
 
         <form className="flex-col" onSubmit={handleSubmit}>
           <TextInput
