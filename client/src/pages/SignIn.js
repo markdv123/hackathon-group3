@@ -24,7 +24,7 @@ function SignIn(props) {
       const loginData = await __LoginUser(email, password)
       props.toggleAuthenticated(true, loginData.user)
     } catch (error) {
-      this.setState({ formError: true })
+      updateErr(true)
     }
   }
   return (
@@ -46,8 +46,8 @@ function SignIn(props) {
             value={password}
             onChange={handlePassword}
           />
-          <button className="btn waves-effect waves-light red" type="submit" name="action">Sign In
-                <i className="material-icons right">fast_forward</i>
+          <button className="btn waves-effect waves-light" type="submit" name="action">Sign In
+                <i className="material-icons left">person</i>
           </button>
           {formError ? <p>Error While Logging In</p> : <p></p>}
         </form>

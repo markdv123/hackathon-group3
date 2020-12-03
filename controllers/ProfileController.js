@@ -24,8 +24,17 @@ const GetProfileById = async ( req, resp )=> {
    }
 }
 
+const CreateProfile = async ( req, resp) => {
+   try { 
+
+   }
+   catch (err ) {
+      throw err
+   }
+}
 
 module.exports = {
    GetProfilesbyAccount,
-   GetProfileById
+   GetProfileById,
+   CreateProfile
 }
